@@ -1,12 +1,12 @@
-# dot-prop [![Build Status](https://travis-ci.org/sindresorhus/dot-prop.svg?branch=master)](https://travis-ci.org/sindresorhus/dot-prop)
+# slash-prop
 
-> Get, set, or delete a property from a nested object using a dot path
+> Get, set, or delete a property from a nested object using a slash path
 
 
 ## Install
 
 ```
-$ npm install --save dot-prop
+$ npm install --save slash-prop
 ```
 
 
