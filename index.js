@@ -79,14 +79,14 @@ module.exports.has = function (obj, path) {
 };
 
 function getPathSegments(path) {
-	var pathArr = path.split('.');
+	var pathArr = path.split('/');
 	var parts = [];
 
 	for (var i = 0; i < pathArr.length; i++) {
 		var p = pathArr[i];
 
 		while (p[p.length - 1] === '\\') {
-			p = p.slice(0, -1) + '.';
+			p = p.slice(0, -1) + '/';
 			p += pathArr[++i];
 		}
 

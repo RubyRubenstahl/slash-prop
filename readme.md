@@ -2,7 +2,7 @@
 
 > Get, set, or delete a property from a nested object using a slash path
 
-
+based on dot-prop by Sindre Sorhus
 ## Install
 
 ```
@@ -13,36 +13,36 @@ $ npm install --save slash-prop
 ## Usage
 
 ```js
-const dotProp = require('dot-prop');
+const slashProp = require('slash-prop');
 
 // getter
-dotProp.get({foo: {bar: 'unicorn'}}, 'foo.bar');
+slashProp.get({foo: {bar: 'unicorn'}}, 'foo/bar');
 //=> 'unicorn'
 
-dotProp.get({foo: {bar: 'a'}}, 'foo.notDefined.deep');
+slashProp.get({foo: {bar: 'a'}}, 'foo/notDefined/deep');
 //=> undefined
 
-dotProp.get({foo: {'dot.dot': 'unicorn'}}, 'foo.dot\\.dot');
+slashProp.get({foo: {'dot/dot': 'unicorn'}}, 'foo/dot\\/dot');
 //=> 'unicorn'
 
 // setter
 const obj = {foo: {bar: 'a'}};
-dotProp.set(obj, 'foo.bar', 'b');
+slashProp.set(obj, 'foo.bar', 'b');
 console.log(obj);
 //=> {foo: {bar: 'b'}}
 
-dotProp.set(obj, 'foo.baz', 'x');
+slashProp.set(obj, 'foo/baz', 'x');
 console.log(obj);
 //=> {foo: {bar: 'b', baz: 'x'}}
 
 // deleter
 const obj = {foo: {bar: 'a'}};
-dotProp.delete(obj, 'foo.bar');
+slashProp.delete(obj, 'foo/bar');
 console.log(obj);
 //=> {foo: {}}
 
 obj.foo.bar = {x: 'y', y: 'x'};
-dotProp.delete(obj, 'foo.bar.x');
+slashProp.delete(obj, 'foo/bar/x');
 console.log(obj);
 //=> {foo: {bar: {y: 'x'}}}
 ```
@@ -66,7 +66,7 @@ Object to get, set, or delete the `path` value.
 
 Type: `string`
 
-Path of the property in the object. Use `.` for nested objects or `\\.` to add a `.` in a key.
+Path of the property in the object. Use `/` for nested objects or `\\/` to add a `/` in a key.
 
 #### value
 
@@ -77,4 +77,4 @@ Value to set at `path`.
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Ruby Rubenstahl] - based on dot-prop by [Sindre Sorhus](http://sindresorhus.com),
